@@ -1,8 +1,10 @@
 /* Basic reset and full viewport setup */
 html, body {
-    height: 100%;
+    width: 100%; /* Ensure full width */
+    height: 100%; /* Ensure full height */
     margin: 0;
     padding: 0;
+    overflow: hidden; /* Prevents scrollbars on html and body */
     box-sizing: border-box;
 }
 
@@ -10,16 +12,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    /* background-color: #f4a261; /* Initial autumn color - will be overridden by animation */
+    /* min-height: 100vh; REMOVED: html, body height: 100% is used instead for no-scroll */
+    /* background-color: #f4a261; /* Fallback if animation is off */
     /* Define CSS variables for our autumn palette */
     --color1: #e09c25; /* Deep Reddish Orange */
     --color2: #c14520; /* Vibrant Orange Red */
-    --color3: #942442; /* Bright Orange */
+    --color3: #942442; /* Bright Orange */ /* Note: This hex looks more like a deep magenta/maroon than bright orange */
     --color4: #d78628; /* Deep Orange */
-    --color5: #75260d;  /* Pale Dogwood */
+    --color5: #75260d;  /* Pale Dogwood */ /* Note: This hex looks more like a dark brown/red than pale dogwood */
 
-    animation: changeBackgroundColor 15s infinite linear; /* 20s duration, infinite loop, smooth transition */
+    animation: changeBackgroundColor 15s infinite linear; /* 15s duration, infinite loop, smooth transition */
 }
 
 /* Define the keyframes for the background color animation */
@@ -35,11 +37,14 @@ body {
 img {
     display: block;
     /* Adjust these values to make the image smaller */
-    max-width: 50%;   /* Example: Image will not exceed 50% of container's width */
-    max-height: 50vh; /* Example: Image will not exceed 50% of viewport's height */
+    max-width: 50%;   /* Image will not exceed 50% of container's width */
+    max-height: 50vh; /* Image will not exceed 50% of viewport's height */
     /* You can also use fixed pixel values if you prefer, but percentages/vh are more responsive */
     /* width: 300px; */
     /* height: auto; */
+
+    /* Add box-sizing to image for robustness if padding/border are ever added to it */
+    box-sizing: border-box;
 
     height: auto;
     width: auto;
