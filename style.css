@@ -1,0 +1,49 @@
+/* Basic reset and full viewport setup */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* background-color: #f4a261; /* Initial autumn color - will be overridden by animation */
+    /* Define CSS variables for our autumn palette */
+    --color1: #e09c25; /* Deep Reddish Orange */
+    --color2: #c14520; /* Vibrant Orange Red */
+    --color3: #942442; /* Bright Orange */
+    --color4: #d78628; /* Deep Orange */
+    --color5: #75260d;  /* Pale Dogwood */
+
+    animation: changeBackgroundColor 15s infinite linear; /* 20s duration, infinite loop, smooth transition */
+}
+
+/* Define the keyframes for the background color animation */
+@keyframes changeBackgroundColor {
+    0%   { background-color: var(--color1); }
+    20%  { background-color: var(--color2); }
+    40%  { background-color: var(--color3); }
+    60%  { background-color: var(--color4); }
+    80%  { background-color: var(--color5); }
+    100% { background-color: var(--color1); } /* Loop back to the start */
+}
+
+img {
+    display: block;
+    /* Adjust these values to make the image smaller */
+    max-width: 50%;   /* Example: Image will not exceed 50% of container's width */
+    max-height: 50vh; /* Example: Image will not exceed 50% of viewport's height */
+    /* You can also use fixed pixel values if you prefer, but percentages/vh are more responsive */
+    /* width: 300px; */
+    /* height: auto; */
+
+    height: auto;
+    width: auto;
+    object-fit: contain;
+    border-radius: 8px; /* Optional: adds slightly rounded corners to the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: adds a subtle shadow */
+}
