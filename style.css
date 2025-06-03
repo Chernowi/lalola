@@ -1,54 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
 /* Basic reset and full viewport setup */
 html, body {
     width: 100%; /* Ensure full width */
     height: 100%; /* Ensure full height */
     margin: 0;
-    padding: 0;
-    overflow: hidden; /* Prevents scrollbars on html and body */
+    padding: 0; /* Reset padding */
+    overflow: hidden; /* Prevents scrollbars on html and body by default */
     box-sizing: border-box;
+    font-family: 'Anton', sans-serif; /* Apply Anton font globally */
 }
 
 body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* min-height: 100vh; REMOVED: html, body height: 100% is used instead for no-scroll */
-    /* background-color: #f4a261; /* Fallback if animation is off */
-    /* Define CSS variables for our autumn palette */
-    --color1: #e09c25; /* Deep Reddish Orange */
-    --color2: #c14520; /* Vibrant Orange Red */
-    --color3: #942442; /* Bright Orange */ /* Note: This hex looks more like a deep magenta/maroon than bright orange */
-    --color4: #d78628; /* Deep Orange */
-    --color5: #75260d;  /* Pale Dogwood */ /* Note: This hex looks more like a dark brown/red than pale dogwood */
-
-    animation: changeBackgroundColor 15s infinite linear; /* 15s duration, infinite loop, smooth transition */
+    background-color: #b50e02; /* Updated background color */
+    position: relative;
+    transition: margin-left 0.3s; /* Smooth transition for when menu opens */
+    padding-bottom: 60px; /* Added space for the fixed footer */
+    text-transform: uppercase; /* Add this line */
 }
 
-/* Define the keyframes for the background color animation */
-@keyframes changeBackgroundColor {
-    0%   { background-color: var(--color1); }
-    20%  { background-color: var(--color2); }
-    40%  { background-color: var(--color3); }
-    60%  { background-color: var(--color4); }
-    80%  { background-color: var(--color5); }
-    100% { background-color: var(--color1); } /* Loop back to the start */
+/* Removed the keyframes for the background color animation */
+
+/* Styles for the menu icon */
+.menu-icon {
+    position: fixed; /* Or absolute, depending on your layout needs */
+    top: 20px;
+    left: 20px;
+    z-index: 1001; /* Ensure it's above other content but below the side menu */
+    cursor: pointer;
+    width: 80px; /* Increased width */
+    height: 80px; /* Increased height */
+}
+
+.menu-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Basic responsive adjustments for the menu icon if needed */
+@media (max-width: 600px) {
+    .menu-icon {
+        top: 15px;
+        left: 15px;
+        width: 25px;
+        height: 18px;
+    }
+    .menu-icon div {
+        height: 3px;
+        margin: 4px 0;
+    }
 }
 
 img {
     display: block;
-    /* Adjust these values to make the image smaller */
-    max-width: 50%;   /* Image will not exceed 50% of container's width */
-    max-height: 50vh; /* Image will not exceed 50% of viewport's height */
-    /* You can also use fixed pixel values if you prefer, but percentages/vh are more responsive */
-    /* width: 300px; */
-    /* height: auto; */
-
-    /* Add box-sizing to image for robustness if padding/border are ever added to it */
+    max-width: 70%; /* Increased max-width */
+    max-height: 70vh; /* Increased max-height */
     box-sizing: border-box;
-
     height: auto;
     width: auto;
     object-fit: contain;
-    border-radius: 8px; /* Optional: adds slightly rounded corners to the image */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: adds a subtle shadow */
+}
+
+/* Styles for the main logo on index.html */
+#mainLogo {
+    max-width: 80%; /* Larger max-width */
+    max-height: 80vh; /* Larger max-height */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Ensure mainContent on index page allows for absolute positioning of the logo */
+.main-content-index {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Needed for absolute positioning of children */
+}
+
+
+/* Side Menu Styles */
+.side-menu {
+    height: 100%;
+    width: 0; /* Initially hidden */
+    position: fixed;
+    z-index: 20; /* Higher than menu-icon */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Dark background for the menu */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.3s; /* Animation for opening/closing */
+    padding-top: 60px; /* Space for content below menu icon */
+}
+
+.side-menu a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 22px;
+    color: #818181;
+    display: block;
+    transition: 0.2s;
+    text-align: center; /* Add this line */
+}
+
+.side-menu a:hover {
+    color: #f1f1f1;
+}
+
+.side-menu .home-icon-link {
+    padding: 10px 15px; /* Consistent padding */
+    display: flex; /* Align icon nicely if text were next to it */
+    align-items: center;
+}
+
+.side-menu .home-icon-img {
+    width: 30px; /* Increased size */
+    height: 30px; /* Increased size */
+    margin-right: 8px; /* Space if you add text next to it, or just for padding */
+    filter: invert(75%) sepia(0%) saturate(0%) hue-rotate(180deg) brightness(100%) contrast(100%); /* Makes it white-ish like other icons */
+}
+
+
+.side-menu .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    color: #818181;
+    cursor: pointer;
+}
+
+.side-menu .close-btn:hover {
+    color: #f1f1f1;
+}
+
+/* Style for the main content when menu is open */
+.main-content-shifted {
+    margin-left: 250px; /* Same as menu width */
+    transition: margin-left 0.3s;
+}
+
+/* Back button style */
+.back-button {
+    display: inline-flex; /* Use flex to center icon */
+    align-items: center;
+    justify-content: center;
+    padding: 10px; /* Uniform padding around the icon */
+    margin: 20px;
+    background-color: #333;
+    color: white; /* This will be the icon color via fill="currentColor" in SVG */
+    text-decoration: none;
+    border-radius: 5px;
+    /* font-size: 16px; /* No longer needed for icon-only button */
+}
+
+.back-button svg {
+    width: 24px; /* Control icon size */
+    height: 24px; /* Control icon size */
+    fill: currentColor; /* Ensures SVG inherits color from .back-button */
+}
+
+.back-button:hover {
+    background-color: #555;
+}
+
+/* Gallery Styles */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px; /* Space between images */
+    padding: 20px;
+    max-width: 95%; /* Max width of the gallery container */
+    margin: 20px auto; /* Center the gallery */
+}
+
+.gallery img {
+    height: 250px; /* Fixed height for images */
+    width: auto; /* Width will adjust to maintain aspect ratio */
+    max-width: 100%; /* Ensure images don't overflow their flex item container if they are very wide */
+    object-fit: cover; /* Scales and crops images to fill the dimensions */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease-in-out;
+}
+
+.gallery img:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 15px 0;
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.9em;
+    z-index: 1000; /* Ensure footer stays on top */
+    border-top: 1px solid #444;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: #9cf; /* Light blue for links */
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #fff;
+    text-decoration: underline;
 }

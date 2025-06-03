@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>lalola</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="lalola_blanco.png" type="image/png"> <!-- Moved favicon link inside head -->
+    <link rel="icon" href="lalola_blanco.png" type="image/png">
 
     <!-- === Open Graph meta tags for WhatsApp and other social media === -->
     <meta property="og:title" content="lalola!">
@@ -18,6 +18,23 @@
 
 </head>
 <body>
-    <img src="lalola.png" alt="aqui debería haber un gato">
+    <div id="mySideMenu" class="side-menu">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="tatus.html">Tatus</a>
+        <a href="libretas.html">Libretas</a>
+    </div>
+
+    <div id="mainContent" class="main-content-index">
+        <div class="menu-icon" onclick="openNav()"> <!-- Updated to openNav() -->
+            <img src="menu_icon.png" alt="Menu" style="width: 100%; height: 100%; object-fit: contain;">
+        </div>
+        <img src="lalola.png" alt="aqui debería haber un gato" id="mainLogo">
+    </div>
+
+    <script src="script.js"></script>
+    <footer>
+        <p>&copy; 2025 Lalola. All rights reserved. <a href="copyright.html">Copyright Disclaimer</a></p>
+    </footer>
 </body>
 </html>
