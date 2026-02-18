@@ -7,27 +7,38 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="lalola_blanco.png" type="image/png">
 </head>
-<body style="background-color: #b50e02; display: block; text-align: center; overflow-y: auto;">
-    <div id="mySideMenu" class="side-menu">
-        <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
-        <a href="index.html">Home</a>
-        <a href="tatus.html">Tatus</a>
-        <a href="libretas.html">Libretas</a>
+<body style="background-color: #ff3434; display: block; text-align: center; overflow-y: auto;">
+    <div id="side-menu" class="side-menu">
+        <button class="menu-close" id="menu-close"><img src="images/icons/close_icon.png" alt="Close"></button>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tatus.html">Tatus</a>
+            <a href="libretas.html">Libretas</a>
+            <a href="samarretes.html">Samarretes</a>
+        </nav>
     </div>
 
-    <div class="menu-icon" onclick="openNav()">
-        <img src="menu_icon.png" alt="Menu" style="width: 100%; height: 100%; object-fit: contain;">
+    <div class="menu-icon" id="menu-icon">
+        <img class="menu-img-1" src="images/home/menu/icono menu 1.png" alt="Menu" draggable="false">
+        <img class="menu-img-2" src="images/home/menu/icono menu 2.png" alt="Menu" draggable="false">
+        <img class="menu-img-1-red" src="images/home/menu/icono menu 1 red.png" alt="Menu" draggable="false">
+        <img class="menu-img-2-red" src="images/home/menu/icono menu 2 red.png" alt="Menu" draggable="false">
     </div>
 
-    <h1>Tatoos</h1>
-    <div class="gallery">
-        <img src="images/tatus/IMG_1245.JPG" alt="Tatuaje 1">
-        <img src="images/tatus/unnamed (4).jpg" alt="Tatuaje 2">
-        <img src="images/tatus/unnamed (5).jpg" alt="Tatuaje 3">
-        <!-- Add more img tags here for other tatus images as needed -->
+    <div class="main-content-tatus">
+        <div class="tatus-title-video">
+            <video id="tatusTitleVideo" src="images/tatus/títol/títol tatus animat.MP4" autoplay loop muted playsinline></video>
+        </div>
+        <div class="gallery-grid" id="galleryGrid"></div>
+        <div id="tatusModal" class="tatus-modal" style="display:none;">
+            <span class="tatus-modal-close" id="tatusModalClose"><img src="images/icons/close_icon_red.png" alt="Close"></span>
+            <div class="tatus-modal-arrow tatus-modal-arrow-left" id="tatusModalArrowLeft" style="display:none;"><img src="images/icons/left_arrow_red.png" alt="Previous"></div>
+            <div class="tatus-modal-arrow tatus-modal-arrow-right" id="tatusModalArrowRight" style="display:none;"><img src="images/icons/right_arrow_red.png" alt="Next"></div>
+            <img class="tatus-modal-content" id="tatusModalImage" src="" alt="" style="display:none; max-width:90vw; max-height:90vh;">
+            <video class="tatus-modal-content" id="tatusModalVideo" src="" controls style="display:none; max-width:90vw; max-height:90vh;"></video>
+        </div>
     </div>
-    <!-- Add more content as needed -->
-    <script src="script.js"></script>
+    <script src="script.js?v=20260214"></script>
     <footer>
         <p>&copy; 2025 Lalola. All rights reserved. <a href="copyright.html">Copyright Disclaimer</a></p>
     </footer>

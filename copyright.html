@@ -8,15 +8,17 @@
     <link rel="icon" href="lalola_blanco.png" type="image/png">
 </head>
 <body style="background-color: #b50e02; display: block; text-align: center; padding: 20px 20px 80px; color: white; overflow-y: auto;">
-    <div id="mySideMenu" class="side-menu">
-        <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
-        <a href="index.html">Home</a>
-        <a href="tatus.html">Tatus</a>
-        <a href="libretas.html">Libretas</a>
+    <div id="side-menu" class="side-menu">
+        <button class="menu-close" id="menu-close">&times;</button>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tatus.html">Tatus</a>
+            <a href="libretas.html">Libretas</a>
+        </nav>
     </div>
 
-    <div class="menu-icon" onclick="openNav()">
-        <img src="menu_icon.png" alt="Menu" style="width: 100%; height: 100%; object-fit: contain;">
+    <div class="menu-icon" id="menu-icon">
+        <img id="menu-img" src="images/home/menu/icono menu 1.PNG" alt="Menu" draggable="false">
     </div>
 
     <h1>Copyright Disclaimer</h1>
