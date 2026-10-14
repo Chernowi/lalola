@@ -1,0 +1,270 @@
+/* ===== Pàgina de calendaris ===== */
+.cal-page {
+    background: #ff3434;
+    color: #111;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-y: auto;
+}
+.cal-main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 16px 120px; /* espai pel footer fix */
+    text-align: center;
+}
+
+/* Vora "dibuixada a mà" com els requadres del calendari */
+.cal-card,
+.cal-hero-img,
+.cal-gallery-item,
+.cal-btn {
+    border: 3px solid #111;
+    border-radius: 255px 12px 225px 12px / 12px 225px 12px 255px;
+}
+
+/* --- Portada --- */
+.cal-hero { padding-top: 40px; }
+.cal-kicker {
+    font-family: 'Anton', Arial, sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    margin: 0;
+    color: #fff;
+}
+.cal-title {
+    font-family: 'Anton', Arial, sans-serif;
+    font-weight: 400;
+    font-size: clamp(3.5rem, 13vw, 8.5rem);
+    line-height: 0.92;
+    margin: 6px 0 12px;
+    color: #111;
+}
+.cal-title span { color: #fff; }
+.cal-sub {
+    font-size: 1.15rem;
+    font-weight: bold;
+    margin: 0 0 32px;
+}
+.cal-hero-img {
+    position: relative;
+    max-width: 560px;
+    margin: 0 auto 40px;
+    background: #fff;
+    padding: 10px;
+    transform: rotate(-2deg);
+    box-shadow: 8px 10px 0 #111;
+}
+.cal-hero-img img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.cal-price-badge {
+    position: absolute;
+    right: -26px;
+    top: -30px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #111;
+    color: #fff;
+    font-family: 'Anton', Arial, sans-serif;
+    font-size: 2.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(12deg);
+    border: 4px solid #fff;
+}
+
+/* --- Botons --- */
+.cal-btn {
+    display: inline-block;
+    font-family: 'Anton', Arial, sans-serif;
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: #fff;
+    background: #111;
+    padding: 14px 28px;
+    transition: transform 0.15s, background 0.15s;
+}
+.cal-btn:hover { transform: rotate(-2deg) scale(1.05); background: #000; }
+.cal-btn-big { font-size: 1.8rem; padding: 16px 40px; }
+.cal-btn-disabled,
+.cal-btn-disabled:hover {
+    background: #888;
+    border-color: #888;
+    transform: none;
+    cursor: not-allowed;
+}
+
+/* --- Seccions --- */
+.cal-section { margin-top: 80px; }
+.cal-h2 {
+    font-family: 'Anton', Arial, sans-serif;
+    font-weight: 400;
+    font-size: clamp(2rem, 7vw, 3.5rem);
+    margin: 0 0 24px;
+    color: #fff;
+}
+.cal-h2-dark { color: #111; }
+.cal-lead { font-size: 1.1rem; max-width: 560px; margin: 0 auto 28px; }
+
+/* --- Galeria --- */
+.cal-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    align-items: start;
+}
+.cal-gallery-item {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 6px;
+    background: #fff;
+    cursor: zoom-in;
+    transition: transform 0.15s;
+}
+.cal-gallery-item:nth-child(odd):hover  { transform: rotate(-1.5deg) scale(1.02); }
+.cal-gallery-item:nth-child(even):hover { transform: rotate(1.5deg) scale(1.02); }
+.cal-gallery-item img { display: block; width: 100%; height: auto; }
+
+/* --- Targetes --- */
+.cal-card {
+    background: #fff;
+    padding: 28px 24px;
+    text-align: left;
+}
+.cal-details { max-width: 620px; margin: 0 auto; }
+.cal-details ul { margin: 0; padding-left: 20px; font-size: 1.1rem; line-height: 1.9; }
+
+.cal-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+.cal-option { display: flex; flex-direction: column; }
+.cal-option h3 {
+    font-family: 'Anton', Arial, sans-serif;
+    font-weight: 400;
+    font-size: 1.8rem;
+    margin: 0 0 4px;
+    color: #ff3434;
+}
+.cal-option-price {
+    font-family: 'Anton', Arial, sans-serif;
+    font-size: 2.4rem;
+    margin: 0 0 12px;
+}
+.cal-option-price small {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.95rem;
+    color: #555;
+}
+.cal-option p { margin: 0 0 10px; }
+.cal-muted { color: #555; font-size: 0.95rem; }
+.cal-option .cal-btn { margin-top: auto; text-align: center; }
+
+.cal-closed {
+    display: inline-block;
+    background: #111;
+    color: #fff;
+    padding: 10px 18px;
+    font-weight: bold;
+    margin: 0 0 24px;
+}
+.cal-closed[hidden] { display: none; }
+
+.cal-steps {
+    list-style: none;
+    counter-reset: pas;
+    padding: 0;
+    margin: 36px auto 0;
+    max-width: 620px;
+    text-align: left;
+}
+.cal-steps li {
+    counter-increment: pas;
+    position: relative;
+    padding: 6px 0 6px 52px;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+.cal-steps li::before {
+    content: counter(pas);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #fff;
+    border: 3px solid #111;
+    font-family: 'Anton', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cal-secure { font-size: 0.95rem; margin-top: 20px; }
+
+/* --- Preguntes --- */
+.cal-faq { max-width: 680px; margin: 0 auto; text-align: left; }
+.cal-faq details {
+    background: #fff;
+    border: 3px solid #111;
+    margin-bottom: 12px;
+    padding: 14px 18px;
+}
+.cal-faq summary {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+.cal-faq p { margin: 10px 0 0; line-height: 1.5; }
+.cal-faq a { color: #ff3434; font-weight: bold; }
+
+/* --- Lightbox --- */
+.cal-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.88);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+.cal-modal[hidden] { display: none; }
+.cal-modal img#calModalImg {
+    max-width: 92vw;
+    max-height: 88vh;
+    background: #fff;
+    padding: 8px;
+}
+.cal-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+.cal-modal-close img { width: 72px; height: auto; }
+
+/* --- Mòbil --- */
+@media (max-width: 768px) {
+    .cal-main { padding-top: 90px; }
+    .cal-hero { padding-top: 0; }
+    .cal-price-badge { width: 90px; height: 90px; font-size: 1.9rem; right: -8px; top: -24px; }
+    .cal-hero-img { box-shadow: 5px 6px 0 #111; }
+    .cal-section { margin-top: 60px; }
+    .cal-gallery { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .cal-modal-close img { width: 44px; }
+}
+@media (max-width: 480px) {
+    .cal-main { padding-top: 80px; }
+    .cal-btn-big { font-size: 1.5rem; padding: 14px 28px; }
+    .cal-card { padding: 22px 18px; }
+}

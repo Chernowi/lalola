@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendari 2027 - Lalola</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="calendaris.css">
+    <link rel="icon" href="lalola_blanco.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+    <!-- === Open Graph (WhatsApp, Instagram...) === -->
+    <meta property="og:title" content="Calendari 2027 de Lola Carandell">
+    <meta property="og:description" content="12 mesos, 12 il·lustracions. 15 €. Encarrega'l aquí!">
+    <meta property="og:image" content="https://lola.cat/images/calendaris/06-juny.jpg">
+    <meta property="og:url" content="https://lola.cat/calendaris">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Lalola's Page">
+</head>
+<body class="cal-page">
+    <div id="side-menu" class="side-menu">
+        <button class="menu-close" id="menu-close"><img src="images/icons/close_icon.png" alt="Close"></button>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="tatus.html">Tatus</a>
+            <a href="libretas.html">Libretas</a>
+            <a href="samarretes.html">Samarretes</a>
+            <a href="calendaris.html">Calendaris</a>
+        </nav>
+    </div>
+
+    <div class="menu-icon" id="menu-icon">
+        <img class="menu-img-1" src="images/home/menu/icono menu 1.png" alt="Menu" draggable="false">
+        <img class="menu-img-2" src="images/home/menu/icono menu 2.png" alt="Menu" draggable="false">
+        <img class="menu-img-1-red" src="images/home/menu/icono menu 1 red.png" alt="Menu" draggable="false">
+        <img class="menu-img-2-red" src="images/home/menu/icono menu 2 red.png" alt="Menu" draggable="false">
+    </div>
+
+    <main class="cal-main">
+
+        <!-- ============ PORTADA ============ -->
+        <section class="cal-hero">
+            <p class="cal-kicker">ja és aquí el</p>
+            <h1 class="cal-title">CALENDARI<br><span>2027</span></h1>
+            <p class="cal-sub">12 mesos · 12 il·lustracions originals de Lola Carandell</p>
+            <div class="cal-hero-img">
+                <img src="images/calendaris/06-juny.jpg" alt="Calendari de Lola Carandell, mes de juny">
+                <div class="cal-price-badge"><span class="js-preu">15</span> €</div>
+            </div>
+            <a href="#encarrega" class="cal-btn cal-btn-big">ENCARREGA'L!</a>
+        </section>
+
+        <!-- ============ GALERIA ============ -->
+        <section class="cal-section">
+            <h2 class="cal-h2">UNA ULLADA A DINS</h2>
+            <div class="cal-gallery" id="calGallery"></div>
+        </section>
+
+        <!-- ============ DETALLS ============ -->
+        <section class="cal-section">
+            <div class="cal-card cal-details">
+                <h2 class="cal-h2 cal-h2-dark">EL CALENDARI</h2>
+                <ul>
+                    <li>12 il·lustracions originals, una per mes</li>
+                    <li>Espiral amb penjador, a punt per penjar a la paret</li>
+                    <li>Mesos i dies en català, amb les fases de la lluna</li>
+                    <li>Mida: <span class="js-mida"></span></li>
+                    <li>Preu: <strong><span class="js-preu">15</span> €</strong> el calendari</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ============ ENCARREGA ============ -->
+        <section class="cal-section" id="encarrega">
+            <h2 class="cal-h2">ENCARREGA'L</h2>
+            <p class="cal-lead">Tria com el vols rebre. A la pantalla següent podràs triar quants en vols i pagar amb targeta.</p>
+            <p class="cal-closed" id="calClosed" hidden>Les comandes encara no estan obertes. Torna-hi aviat!</p>
+
+            <div class="cal-options">
+                <div class="cal-card cal-option">
+                    <h3>RECOLLIDA</h3>
+                    <p class="cal-option-price"><span class="js-preu">15</span> €<small> / calendari</small></p>
+                    <p>El passes a buscar a <strong class="js-recollida"></strong>.</p>
+                    <p class="cal-muted">Sense cap cost extra. Lola t'escriurà quan estigui a punt.</p>
+                    <a href="#" class="cal-btn js-pay" data-link="recollida">VULL RECOLLIR-LO</a>
+                </div>
+                <div class="cal-card cal-option">
+                    <h3>ENVIAMENT A CASA</h3>
+                    <p class="cal-option-price"><span class="js-preu">15</span> €<small> / calendari + <span class="js-enviament"></span> € d'enviament</small></p>
+                    <p>Te l'entreguem en mà. Només a <strong class="js-zona"></strong>.</p>
+                    <p class="cal-muted">Et demanarem l'adreça a la pantalla de pagament.</p>
+                    <a href="#" class="cal-btn js-pay" data-link="enviament">VULL QUE M'ARRIBI</a>
+                </div>
+            </div>
+
+            <ol class="cal-steps">
+                <li><strong>Tria</strong> recollida o enviament</li>
+                <li><strong>Paga</strong> amb targeta, Apple Pay o Google Pay</li>
+                <li><strong>Rebràs un correu</strong> amb el rebut i la Lola et dirà quan està a punt</li>
+            </ol>
+            <p class="cal-secure">Pagament segur amb <strong>Stripe</strong>. Les dades de la targeta no passen per aquesta web.</p>
+        </section>
+
+        <!-- ============ PREGUNTES ============ -->
+        <section class="cal-section">
+            <h2 class="cal-h2">PREGUNTES</h2>
+            <div class="cal-faq">
+                <details>
+                    <summary>Quan el tindré?</summary>
+                    <p class="js-quan"></p>
+                </details>
+                <details>
+                    <summary>Puc demanar-ne més d'un?</summary>
+                    <p>Sí! A la pantalla de pagament pots canviar la quantitat. Són un bon regal de Nadal ;)</p>
+                </details>
+                <details>
+                    <summary>Puc pagar en efectiu o amb Bizum?</summary>
+                    <p>Per la web només amb targeta. Si prefereixes una altra manera, escriu-li a la Lola: <a class="js-contacte" href="#"></a></p>
+                </details>
+                <details>
+                    <summary>Tinc un problema amb la comanda</summary>
+                    <p>Escriu-li a la Lola: <a class="js-contacte" href="#"></a></p>
+                </details>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div id="calModal" class="cal-modal" hidden>
+        <button class="cal-modal-close" id="calModalClose" aria-label="Tancar"><img src="images/icons/close_icon_red.png" alt=""></button>
+        <img id="calModalImg" src="" alt="">
+    </div>
+
+    <script src="script.js"></script>
+    <script src="calendaris.js"></script>
+    <footer>
+        <p>&copy; 2026 Lola Carandell (lalola). All rights reserved. <a href="copyright.html">Copyright Disclaimer</a></p>
+    </footer>
+</body>
+</html>
